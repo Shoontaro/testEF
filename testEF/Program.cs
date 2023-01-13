@@ -42,7 +42,7 @@ namespace testEF
             //}
 
             // получение
-            using (ApplicationContext db = new ApplicationContext(connectionString))
+            using (ApplicationContext db = new ApplicationContext(/*connectionString*/))
             {
                 // получаем объекты из бд и выводим на консоль
                 var users = db.Users.ToList();

@@ -18,17 +18,26 @@ namespace testEF
 
         //public ApplicationContext() => Database.EnsureCreated(); // гарант что бд создана
         //or
-        public ApplicationContext(string connectionString)
-        {
-            this.connectionString = connectionString;   // получаем извне строку подключения
-            Database.EnsureDeleted();   // удаляем бд со старой схемой
-            Database.EnsureCreated();   // создаем бд с новой схемой
-        }
+        //public ApplicationContext(/*string connectionString*/)
+        //{
+        //    this.connectionString = connectionString;   // получаем извне строку подключения
+        //    //Database.EnsureDeleted();   // удаляем бд со старой схемой
+        //    //Database.EnsureCreated();   // создаем бд с новой схемой
+        //}
 
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlite(connectionString);
+        //    //optionsBuilder.EnableSensitiveDataLogging(true);
+        //}
+
+        public ApplicationContext()
+        {
+            //    Database.EnsureCreated();
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(connectionString);
-            //optionsBuilder.EnableSensitiveDataLogging(true);
+            optionsBuilder.UseSqlite("Data Source=helloapp.db");
         }
     }
 }
