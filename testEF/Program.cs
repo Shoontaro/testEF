@@ -44,6 +44,8 @@ namespace testEF
             // получение
             using (ApplicationContext db = new ApplicationContext(/*connectionString*/))
             {
+                db.Database.Migrate();  // миграция
+                
                 // получаем объекты из бд и выводим на консоль
                 var users = db.Users.ToList();
                 //Console.WriteLine("Данные после добавления:");
